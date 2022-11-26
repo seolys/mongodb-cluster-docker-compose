@@ -7,7 +7,7 @@ services:
     container_name: router-01
     command: mongos --port 27017 --configdb rs-config-server/configsvr01:27017,configsvr02:27017,configsvr03:27017 --bind_ip_all
     ports:
-      - 27117:27017
+      - 27017:27017
     volumes:
       - ./scripts:/scripts
   router02:
@@ -17,7 +17,7 @@ services:
     volumes:
       - ./scripts:/scripts
     ports:
-      - 27118:27017
+      - 27018:27017
     links:
       - router01
 
@@ -29,7 +29,7 @@ services:
     volumes:
       - ./scripts:/scripts 
     ports:
-      - 27119:27017
+      - 27019:27017
     links:
       - shard01-a
       - shard02-a
